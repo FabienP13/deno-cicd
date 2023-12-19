@@ -9,4 +9,4 @@ const handler = (request: Request): Response => {
 console.log(`HTTP server running. Access it at: http://localhost:8080/`);
 Deno.serve({ port, handler });
 
-Deno.exit(5);
+Deno.exit(0);
