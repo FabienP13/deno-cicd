@@ -11,3 +11,4 @@ jobs:
         with:
           deno-version: "1.38.4"
       - run: deno lint
+      - run: deno run --allow-all --watch main.ts
