@@ -1,8 +1,10 @@
-export function add(a: number, b: number): number {
-  return a + b;
-}
+const port = 8080;
 
-// Learn more at https://deno.land/manual/examples/module_metadata#concepts
-if (import.meta.main) {
-  console.log("Add 2 + 3 =", add(2, 3));
-}
+const handler = (request: Request): Response => {
+    const body = `Your user-agent is:\n\n${request.headers.get("user-agent") ?? "Unknown"}`;
+
+    return new Response(body, { status: 200 });
+};
+
+console.log(`HTTP server running. Access it at: http://localhost:8080/`);
+Deno.serve({ port }, handler);
