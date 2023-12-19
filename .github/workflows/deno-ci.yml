@@ -1,8 +1,13 @@
-name: Bonjour
+name: Deno CI
 on:
-- push
+  - push
 jobs:
-  dire_bonjour:
+  add_npm:
     runs-on: ubuntu-22.04
     steps:
-      - run: echo "Bonjour Deno👋"
+      - name: checkout action
+        uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: "1.38.4"
+      - run: deno lint
