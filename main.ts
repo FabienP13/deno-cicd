@@ -7,10 +7,6 @@ const handler = (request: Request): Response => {
 };
 
 console.log(`HTTP server running. Access it at: http://localhost:8080/`);
-const server = Deno.serve({ port, handler });
+Deno.serve({ port, handler });
 
-// Attendez l'arrêt du serveur
-await server;
-
-// Cela ne sera jamais atteint tant que le serveur est actif
-console.log("Serveur arrêté.");
+Deno.exit(5);
